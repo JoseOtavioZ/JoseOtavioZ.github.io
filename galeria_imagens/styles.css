@@ -25,10 +25,11 @@ footer{
     color: white;
     text-align: center;
 }
-.texto-botao{
+#busca-imagens{
     border-radius: 7px;
     height: 20px;
     background-color: #1e1f1f;
+    color: white;
 }
 .active{
     background-color: rgb(25, 31, 26);

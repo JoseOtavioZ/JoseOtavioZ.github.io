@@ -23,6 +23,7 @@ $(document).ready(function(){
         const categoria = $(this).data('categoria');
         carregaImagens(categoria);
     });
+
     function sortImages(sort){
         const imagens = $('.box-imagens .imagem-item')
         imagens.sort(function(a,b){
@@ -44,4 +45,21 @@ $(document).ready(function(){
         sortImages(sort);
     });
 
+        function buscaImagens(busca){
+            const imagens = $('.box-imagens .imagem-item')
+            console.log(imagens)
+            imagens.each(function(){
+                const nomeImagem = $(this).find('img').attr('alt');
+                const imagemVisivel = nomeImagem.includes(busca);
+                $(this).toggle(imagemVisivel);
+            })
+        }
+
+    $('#busca-imagens').on('input',function(){
+        const  busca = $(this).val();
+        buscaImagens(busca)
+    })
+
+
+    carregaImagens('todes');
 });
