@@ -10,7 +10,7 @@ header{
     color:white;
     text-align: center;
 }
-.botao-categoria{
+.botao-categoria , .botao-ordenar{
     background-color: rgb(59, 100, 64);
     color:white ;
     padding: 10px 20px;
@@ -48,4 +48,44 @@ footer{
     justify-content: center;
     padding: 20px;
     flex-wrap: wrap;
+}
+.imagem-item img{
+    max-width: 100%;
+    max-height: calc(100vh - 200px);
+    z-index: 1;
+}
+.imagem-selecionada{
+    position: absolute;
+    top:0;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+    height: 100vh;
+}
+.bg-img{
+    background-color: #8686865b;
+}
+.fechar-imagem{
+    position: absolute;
+    color: red;
+    right: 20px;
+    top: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: 0.5px solid red;
+    border-radius: 10px;
+    display: none;
+}
+.botao-ordenar{
+    background-color: rgb(207, 207, 207);
+    color: rgb(59, 100, 64);
+}
+.botao-ordenar:hover{
+    background-color: rgb(128, 148, 128);
+}
+.botao-categoria:hover{
+    background-color: rgb(179, 177, 177);
 }

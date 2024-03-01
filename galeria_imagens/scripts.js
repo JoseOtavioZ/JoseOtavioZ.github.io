@@ -13,7 +13,7 @@ $(document).ready(function(){
        boxImagens.empty();
        imagens.forEach(img => {
         console.log(img);
-        boxImagens.append('<div class="imagem-item"><img src="img/' +img+ '" alt="' +img+ '"/></div>');
+        boxImagens.append('<div class="imagem-item"><div class="fechar-imagem">X</div><img src="img/' +img+ '" alt="' +img+ '"/></div>');
        });
     }
 
@@ -58,8 +58,32 @@ $(document).ready(function(){
     $('#busca-imagens').on('input',function(){
         const  busca = $(this).val();
         buscaImagens(busca)
-    })
+    });
 
+    $('body').on('click','img',function(){
+        $(this).css('max-height','100vh')
+        $(this).parent().find('.fechar-imagem').show();
+        $(this).parent().addClass('imagem-selecionada');
+        $(this).parent().addClass('bg-img');
+
+        $('html, body').css({
+            'overflow':'hidden',
+            'height': '100%'
+        });
+
+    });
+    $('body').on('click','.fechar-imagem',function(){
+        $(this).parent().removeClass('imagem-selecionada');
+        $(this).parent().removeClass('bg-img');
+
+        $('html, body').css({
+            'overflow':'auto',
+            'height': '100vh'            
+        });
+    
+        $(this).parent().find('.fechar-imagem').show();
+        $(this).hide();   
+    });
 
     carregaImagens('todes');
 });
